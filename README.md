@@ -93,3 +93,13 @@ rm tauron_amiplus.zip
 from custom_components.tauron_amiplus.connector import TauronAmiplusConnector
 conn = TauronAmiplusConnector('email', 'password', 'number', True)
 data = conn.get_raw_data()
+
+
+## External (historical) data backfile - some examples in HA core
+
+https://github.com/home-assistant/core/blob/74e2d5c5c312cf3ba154b5206ceb19ba884c6fb4/homeassistant/components/demo/__init__.py#L236
+https://github.com/home-assistant/core/blob/74e2d5c5c312cf3ba154b5206ceb19ba884c6fb4/homeassistant/components/tibber/sensor.py#L642
+
+community post:
+
+https://community.home-assistant.io/t/import-old-energy-readings-for-use-in-energy-dashboard/341406/9
