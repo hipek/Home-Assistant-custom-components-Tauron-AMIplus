@@ -23,7 +23,7 @@ TYPE_GENERATION_YEARLY = "generation_yearly"
 ZONE = "zone"
 TARIFF_G12 = "G12"
 SUPPORTED_TARIFFS = [TARIFF_G12]
-DEFAULT_UPDATE_INTERVAL = timedelta(hours=12)
+DEFAULT_UPDATE_INTERVAL = timedelta(hours=6)
 SENSOR_TYPES = {
     TYPE_ZONE: [None, "sum", ("generation", "OZEValue"), "Zone"],
     TYPE_CONSUMPTION_DAILY: [
