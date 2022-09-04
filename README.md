@@ -87,3 +87,9 @@ rm tauron_amiplus.zip
   To find out value for `energy_meter_id` log in to [_*eLicznik*_](https://elicznik.tauron-dystrybucja.pl). Desired value is in upper-left corner of page (Punkt poboru).
 
 <a href="https://www.buymeacoffee.com/PiotrMachowski" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+## Development - connector usage example
+
+from custom_components.tauron_amiplus.connector import TauronAmiplusConnector
+conn = TauronAmiplusConnector('email', 'password', 'number', True)
+data = conn.get_raw_data()
