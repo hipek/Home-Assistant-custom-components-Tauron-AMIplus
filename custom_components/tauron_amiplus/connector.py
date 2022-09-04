@@ -158,10 +158,27 @@ class TauronAmiplusConnector:
             data={**TauronAmiplusConnector.payload_charts, **payload},
             headers=TauronAmiplusConnector.headers,
         )
-        if response.status_code == 200 and response.text.startswith('{"name"'):
+        if response.status_code == 200 and (
+            response.text.startswith('{"name"') or
+            response.text.startswith('{"type":"hours"')
+        ):
             json_data = response.json()
             return json_data
         return None
+
+    def get_raw_values_hourly(self, session):
+        payload = {
+            "dane[startDay]": (
+                    datetime.datetime.now() - datetime.timedelta(7)
+            ).strftime("%d.%m.%Y"),
+            "dane[endDay]": (
+                    datetime.datetime.now() - datetime.timedelta(1)
+            ).strftime("%d.%m.%Y"),
+            "dane[paramType]": "other",
+            "date[paramArea]": "",
+            "dane[smartNr]": self.meter_id,
+        }
+        return self.get_chart_values(session, payload)
 
     @staticmethod
     def calculate_tariff(username, password, meter_id):
